@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ActivityRouteImport } from './routes/activity'
+import { Route as DsaRouteImport } from './routes/dsa'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as OverviewRouteImport } from './routes/overview'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as ResumeMatchRouteImport } from './routes/resume-match'
+import { Route as SavedRouteImport } from './routes/saved'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SystemDesignRouteImport } from './routes/system-design'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ActivityRoute = ActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DsaRoute = DsaRouteImport.update({
+  id: '/dsa',
+  path: '/dsa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverviewRoute = OverviewRouteImport.update({
+  id: '/overview',
+  path: '/overview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResumeMatchRoute = ResumeMatchRouteImport.update({
+  id: '/resume-match',
+  path: '/resume-match',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SavedRoute = SavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SystemDesignRoute = SystemDesignRouteImport.update({
+  id: '/system-design',
+  path: '/system-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/dsa': typeof DsaRoute
+  '/insights': typeof InsightsRoute
+  '/overview': typeof OverviewRoute
+  '/profile': typeof ProfileRoute
+  '/resources': typeof ResourcesRoute
+  '/resume-match': typeof ResumeMatchRoute
+  '/saved': typeof SavedRoute
+  '/settings': typeof SettingsRoute
+  '/system-design': typeof SystemDesignRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/dsa': typeof DsaRoute
+  '/insights': typeof InsightsRoute
+  '/overview': typeof OverviewRoute
+  '/profile': typeof ProfileRoute
+  '/resources': typeof ResourcesRoute
+  '/resume-match': typeof ResumeMatchRoute
+  '/saved': typeof SavedRoute
+  '/settings': typeof SettingsRoute
+  '/system-design': typeof SystemDesignRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/dsa': typeof DsaRoute
+  '/insights': typeof InsightsRoute
+  '/overview': typeof OverviewRoute
+  '/profile': typeof ProfileRoute
+  '/resources': typeof ResourcesRoute
+  '/resume-match': typeof ResumeMatchRoute
+  '/saved': typeof SavedRoute
+  '/settings': typeof SettingsRoute
+  '/system-design': typeof SystemDesignRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/activity'
+    | '/dsa'
+    | '/insights'
+    | '/overview'
+    | '/profile'
+    | '/resources'
+    | '/resume-match'
+    | '/saved'
+    | '/settings'
+    | '/system-design'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/activity'
+    | '/dsa'
+    | '/insights'
+    | '/overview'
+    | '/profile'
+    | '/resources'
+    | '/resume-match'
+    | '/saved'
+    | '/settings'
+    | '/system-design'
+  id:
+    | '__root__'
+    | '/'
+    | '/activity'
+    | '/dsa'
+    | '/insights'
+    | '/overview'
+    | '/profile'
+    | '/resources'
+    | '/resume-match'
+    | '/saved'
+    | '/settings'
+    | '/system-design'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActivityRoute: typeof ActivityRoute
+  DsaRoute: typeof DsaRoute
+  InsightsRoute: typeof InsightsRoute
+  OverviewRoute: typeof OverviewRoute
+  ProfileRoute: typeof ProfileRoute
+  ResourcesRoute: typeof ResourcesRoute
+  ResumeMatchRoute: typeof ResumeMatchRoute
+  SavedRoute: typeof SavedRoute
+  SettingsRoute: typeof SettingsRoute
+  SystemDesignRoute: typeof SystemDesignRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/activity': {
+      id: '/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof ActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dsa': {
+      id: '/dsa'
+      path: '/dsa'
+      fullPath: '/dsa'
+      preLoaderRoute: typeof DsaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/overview': {
+      id: '/overview'
+      path: '/overview'
+      fullPath: '/overview'
+      preLoaderRoute: typeof OverviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resume-match': {
+      id: '/resume-match'
+      path: '/resume-match'
+      fullPath: '/resume-match'
+      preLoaderRoute: typeof ResumeMatchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/system-design': {
+      id: '/system-design'
+      path: '/system-design'
+      fullPath: '/system-design'
+      preLoaderRoute: typeof SystemDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActivityRoute: ActivityRoute,
+  DsaRoute: DsaRoute,
+  InsightsRoute: InsightsRoute,
+  OverviewRoute: OverviewRoute,
+  ProfileRoute: ProfileRoute,
+  ResourcesRoute: ResourcesRoute,
+  ResumeMatchRoute: ResumeMatchRoute,
+  SavedRoute: SavedRoute,
+  SettingsRoute: SettingsRoute,
+  SystemDesignRoute: SystemDesignRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
