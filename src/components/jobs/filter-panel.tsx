@@ -20,7 +20,7 @@ export function FilterPanel({
   const toggle = (key: ArrayKey, value: string) => {
     const cur = (filters[key] ?? []) as string[];
     const next = cur.includes(value) ? cur.filter((v) => v !== value) : [...cur, value];
-    onChange({ [key]: next.length ? next : undefined, page: undefined } as Partial<JobFilters>);
+    onChange({ [key]: next.length ? next : undefined, page: undefined } as unknown as Partial<JobFilters>);
   };
   const shownCompanies = companies.filter(([c]) => c.toLowerCase().includes(companyQuery.toLowerCase()));
 

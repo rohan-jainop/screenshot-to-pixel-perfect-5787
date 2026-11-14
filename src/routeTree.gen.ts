@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as DsaRouteImport } from './routes/dsa'
 import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as JobsRouteImport } from './routes/jobs'
 import { Route as OverviewRouteImport } from './routes/overview'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ResourcesRouteImport } from './routes/resources'
@@ -39,6 +40,11 @@ const DsaRoute = DsaRouteImport.update({
 const InsightsRoute = InsightsRouteImport.update({
   id: '/insights',
   path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OverviewRoute = OverviewRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/activity': typeof ActivityRoute
   '/dsa': typeof DsaRoute
   '/insights': typeof InsightsRoute
+  '/jobs': typeof JobsRoute
   '/overview': typeof OverviewRoute
   '/profile': typeof ProfileRoute
   '/resources': typeof ResourcesRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/activity': typeof ActivityRoute
   '/dsa': typeof DsaRoute
   '/insights': typeof InsightsRoute
+  '/jobs': typeof JobsRoute
   '/overview': typeof OverviewRoute
   '/profile': typeof ProfileRoute
   '/resources': typeof ResourcesRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/activity': typeof ActivityRoute
   '/dsa': typeof DsaRoute
   '/insights': typeof InsightsRoute
+  '/jobs': typeof JobsRoute
   '/overview': typeof OverviewRoute
   '/profile': typeof ProfileRoute
   '/resources': typeof ResourcesRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/activity'
     | '/dsa'
     | '/insights'
+    | '/jobs'
     | '/overview'
     | '/profile'
     | '/resources'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/activity'
     | '/dsa'
     | '/insights'
+    | '/jobs'
     | '/overview'
     | '/profile'
     | '/resources'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/activity'
     | '/dsa'
     | '/insights'
+    | '/jobs'
     | '/overview'
     | '/profile'
     | '/resources'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   ActivityRoute: typeof ActivityRoute
   DsaRoute: typeof DsaRoute
   InsightsRoute: typeof InsightsRoute
+  JobsRoute: typeof JobsRoute
   OverviewRoute: typeof OverviewRoute
   ProfileRoute: typeof ProfileRoute
   ResourcesRoute: typeof ResourcesRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/insights'
       fullPath: '/insights'
       preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/overview': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   ActivityRoute: ActivityRoute,
   DsaRoute: DsaRoute,
   InsightsRoute: InsightsRoute,
+  JobsRoute: JobsRoute,
   OverviewRoute: OverviewRoute,
   ProfileRoute: ProfileRoute,
   ResourcesRoute: ResourcesRoute,

@@ -33,33 +33,33 @@ export interface Job {
   id: string;
   title: string;
   company: string;
-  companyLogo?: string;
+  companyLogo?: string | undefined;
   location: string;
-  workMode?: WorkMode;
-  level?: Level;
-  domain?: Domain;
+  workMode?: WorkMode | undefined;
+  level?: Level | undefined;
+  domain?: Domain | undefined;
   skills: string[];
-  postedAt?: string; // ISO
-  salary?: string;
+  postedAt?: string | undefined; // ISO
+  salary?: string | undefined;
   applyUrl: string;
 }
 
 export interface JobsResult {
   connected: boolean;
   jobs: Job[];
-  refreshedAt?: string;
-  error?: string;
+  refreshedAt?: string | undefined;
+  error?: string | undefined;
 }
 
 export interface JobFilters {
-  q?: string;
-  companies?: string[];
-  levels?: Level[];
-  domains?: Domain[];
-  modes?: WorkMode[];
-  location?: string;
-  posted?: DateRange;
-  sort?: Sort;
-  page?: number;
-  view?: "list" | "grid";
+  q?: string | undefined;
+  companies?: string[] | undefined;
+  levels?: Level[] | undefined;
+  domains?: Domain[] | undefined;
+  modes?: WorkMode[] | undefined;
+  location?: string | undefined;
+  posted?: DateRange | undefined;
+  sort?: Sort | undefined;
+  page?: number | undefined;
+  view?: "list" | "grid" | undefined;
 }

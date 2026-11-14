@@ -5,11 +5,11 @@ import type { JobsResult } from "./types";
 
 /** Reads jobs from the existing jobs feed (JOBS_FEED_URL). No feed configured = not connected, no fake data. */
 export const fetchJobs = createServerFn({ method: "GET" }).handler(async (): Promise<JobsResult> => {
-  const url = process.env.JOBS_FEED_URL;
+  const url = process.env["JOBS_FEED_URL"];
   if (!url) return { connected: false, jobs: [] };
   try {
     const headers: Record<string, string> = { Accept: "application/json" };
-    if (process.env.JOBS_FEED_TOKEN) headers.Authorization = `Bearer ${process.env.JOBS_FEED_TOKEN}`;
+    if (process.env["JOBS_FEED_TOKEN"]) headers["Authorization"] = `Bearer ${process.env["JOBS_FEED_TOKEN"]}`;
     const res = await fetch(url, { headers });
     if (!res.ok) return { connected: true, jobs: [], error: `Jobs feed responded ${res.status}` };
     const body = await res.json();

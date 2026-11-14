@@ -55,7 +55,7 @@ export function toJob(r: Raw, index: number): Job | null {
   const applyUrl = pick(r, ["apply_url", "applyUrl", "url", "link", "job_url"]);
   if (!title || !company) return null;
   const location = pick(r, ["location", "locations", "city"]);
-  const rawSkills = r.skills ?? r.tags ?? r.technologies;
+  const rawSkills = r["skills"] ?? r["tags"] ?? r["technologies"];
   const skills = Array.isArray(rawSkills)
     ? rawSkills.map(str).filter(Boolean)
     : str(rawSkills).split(/[,|]/).map((s) => s.trim()).filter(Boolean);
@@ -81,7 +81,7 @@ export function toJobs(payload: unknown): Job[] {
   const list = Array.isArray(payload)
     ? payload
     : payload && typeof payload === "object"
-      ? ((payload as Raw).jobs ?? (payload as Raw).data ?? (payload as Raw).results)
+      ? ((payload as Raw)["jobs"] ?? (payload as Raw)["data"] ?? (payload as Raw)["results"])
       : [];
   if (!Array.isArray(list)) return [];
   return list.flatMap((r, i) => (r && typeof r === "object" ? (toJob(r as Raw, i) ?? []) : []));
