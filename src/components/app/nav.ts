@@ -7,7 +7,6 @@ import {
   Code2,
   FileSearch,
   LayoutDashboard,
-  Network,
   Settings,
   User,
 } from "lucide-react";
@@ -19,8 +18,7 @@ export const NAV_MAIN = [
 ] as const;
 
 export const NAV_LEARN = [
-  { title: "DSA Preparation", url: "/dsa", icon: Code2 },
-  { title: "LLD & HLD", url: "/system-design", icon: Network },
+  { title: "Mentorship Roadmaps", url: "/dsa", icon: Code2 },
   { title: "Engineering Resources", url: "/resources", icon: BookOpen },
   { title: "Market Insights", url: "/insights", icon: BarChart3 },
 ] as const;
